@@ -7,7 +7,6 @@ interface CardProps {
 export default function Card({ value }: CardProps) {
   return (
     <li>
-      {value}
       <img
         src={`/images/${value}.svg`}
         alt={value}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { cards, HANDSZ } from '../utils/cards';
-import Card from './Card';
+import { cards, HANDSZ } from '../../utils/cards';
+import Card from '../Card/Card';
 
 interface Card_ {
   id: number;

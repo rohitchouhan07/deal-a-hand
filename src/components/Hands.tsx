@@ -25,10 +25,12 @@ function Hand() {
 
 export default function Hands() {
   const [handList, setHandList] = useState<JSX.Element[]>([]);
+  const [cardList, setCardList] = useState<Card_[]>(cards);
 
   function dealHand() {
     if (cards.length > 5) {
-      setHandList(handList.concat(<Hand key={cards.length}/>)); 
+      let handList: Card_[] = genList();
+      setHandList(handList.concat(<Hand />)); 
     }
   } 
 

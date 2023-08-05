@@ -8,7 +8,7 @@
 //    cards.push(values[j] + "_" + suits[i]);
 //  }
 //}
-
+export const HANDSZ = 5;
 export let cards = [
 
   { id: 0, value: 'clubs_A' },

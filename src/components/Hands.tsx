@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { cards } from '../utils/cards';
+import { cards, HANDSZ } from '../utils/cards';
 import Card from './Card';
 
 interface Card_ {
@@ -7,16 +7,14 @@ interface Card_ {
   value: string;
 }
 
-function Hand() {
-  let handList: Card_[] = [];
-  for (var i = 0; i < 5; i++) {
-    let index: number = Math.floor(Math.random() * (cards.length - 1));
-    handList.push(cards[index]);
-    cards.splice(index, 1);
-  }
+interface HandProps {
+  fiveCards: Card_[];
+}
+
+function Hand({fiveCards}: HandProps) {
   return (
     <ul>
-      {handList.map(card =>
+      {fiveCards.map(card =>
         <Card key={card.id} value={card.value} />
       )}
     </ul>
@@ -28,9 +26,22 @@ export default function Hands() {
   const [cardList, setCardList] = useState<Card_[]>(cards);
 
   function dealHand() {
-    if (cards.length > 5) {
-      let handList: Card_[] = genList();
-      setHandList(handList.concat(<Hand />)); 
+    if (cardList.length >= HANDSZ) {
+      let newList: Card_[] = [...cardList];
+      let fiveCards: Card_[] = [];
+
+      for (var i = 0; i < HANDSZ; i++) {
+        console.log(cardList.length);
+        let index: number = Math.floor(Math.random() * (newList.length - 1));
+        fiveCards.push(newList[index]);
+        newList.splice(index, 1);
+      }
+
+      setCardList(newList);
+      setHandList(handList.concat(<Hand key={newList.length} fiveCards={fiveCards} />)); 
+    }
+    else {
+      alert("No more cards left");
     }
   } 
 

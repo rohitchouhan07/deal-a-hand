@@ -3,7 +3,7 @@ import './Table.css';
 
 export default function Table() {
   return (
-    <div className="table">
+    <div className="table"> 
       <Hands />
     </div>
   );

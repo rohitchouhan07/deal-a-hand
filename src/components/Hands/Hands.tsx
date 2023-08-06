@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { cards, HANDSZ } from '../../utils/cards';
 import Card from '../Card/Card';
+import Button from '../Button/Button';
 
 interface Card_ {
   id: number;
@@ -9,11 +10,12 @@ interface Card_ {
 
 interface HandProps {
   fiveCards: Card_[];
+  className: string;
 }
 
-function Hand({fiveCards}: HandProps) {
+function Hand({ fiveCards, className }: HandProps) {
   return (
-    <ul>
+    <ul className={className}>
       {fiveCards.map(card =>
         <Card key={card.id} value={card.value} />
       )}
@@ -38,7 +40,7 @@ export default function Hands() {
       }
 
       setCardList(newList);
-      setHandList(handList.concat(<Hand key={newList.length} fiveCards={fiveCards} />)); 
+      setHandList(handList.concat(<Hand className="animated" key={newList.length} fiveCards={fiveCards} />)); 
     }
     else {
       alert("No more cards left");
@@ -46,8 +48,9 @@ export default function Hands() {
   } 
 
   return (
-    <div>
-      <button onClick={dealHand}>Deal hand</button>
+    <div className="center-align">
+    <Button className="button1" onClick={dealHand}>Deal a hand</Button>
+    <img src="/images/red.svg" alt="back"/>
       {handList}
     </div>
   );

@@ -1,3 +1,23 @@
 li {
   display: inline;
 }
+
+@keyframes fadeIn {
+  from {
+    transform: translateX(-95%) translateY(-95%)  scaleX(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(0) translateY(0) scaleX(1);
+    opacity: 1;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.animated {
+  animation :fadeIn 0.7s ease;
+}

@@ -50,8 +50,10 @@ export default function Hands() {
   return (
     <div className="center-align">
       <Button className="button1" onClick={dealHand}>Deal a hand</Button>
+      <div className="wrapper">
       <div className="flex-container">
         {handList}
+        </div>
       </div>
     </div>
   );

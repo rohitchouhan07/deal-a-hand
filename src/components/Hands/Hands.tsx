@@ -40,7 +40,7 @@ export default function Hands() {
       }
 
       setCardList(newList);
-      setHandList(handList.concat(<Hand className="animated" key={newList.length} fiveCards={fiveCards} />)); 
+      setHandList(handList.concat(<Hand className="animated-ul" key={newList.length} fiveCards={fiveCards} />)); 
     }
     else {
       alert("No more cards left");
@@ -49,9 +49,10 @@ export default function Hands() {
 
   return (
     <div className="center-align">
-    <Button className="button1" onClick={dealHand}>Deal a hand</Button>
-    <img src="/images/red.svg" alt="back"/>
-      {handList}
+      <Button className="button1" onClick={dealHand}>Deal a hand</Button>
+      <div className="flex-container">
+        {handList}
+      </div>
     </div>
   );
 }

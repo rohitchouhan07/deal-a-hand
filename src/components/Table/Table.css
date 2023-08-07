@@ -13,11 +13,12 @@ li {
   }
 }
 
-ul {
+.animated-ul {
+  animation: fadeIn 0.7s ease;
+  display: inline-block;
+  block-size: fit-content;
   list-style-type: none;
   padding: 0;
-}
-
-.animated {
-  animation :fadeIn 0.7s ease;
+  width: 50%;
+  margin: 0;
 }

@@ -4,10 +4,12 @@ interface ButtonProps {
   children: string;
   onClick: () => void;
   className: string;
+  isDisabled: string;
 }
-export default function Button({ children, onClick, className }: ButtonProps) {
+
+export default function Button({ children, onClick, className, isDisabled }: ButtonProps) {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} disabled={isDisabled === "disabled"}>
       {children}
     </button>
   );

@@ -26,6 +26,7 @@ function Hand({ fiveCards, className }: HandProps) {
 export default function Hands() {
   const [handList, setHandList] = useState<JSX.Element[]>([]);
   const [cardList, setCardList] = useState<Card_[]>(cards);
+  const [isDisabled, setIsDisabled] = useState<string>("enabled");
 
   function dealHand() {
     if (cardList.length >= HANDSZ) {
@@ -43,13 +44,14 @@ export default function Hands() {
       setHandList(handList.concat(<Hand className="animated-ul" key={newList.length} fiveCards={fiveCards} />)); 
     }
     else {
+      setIsDisabled("disabled");
       alert("No more cards left");
     }
   } 
 
   return (
     <div className="center-align">
-      <Button className="button1" onClick={dealHand}>Deal a hand</Button>
+      <Button className="button1" isDisabled={isDisabled} onClick={dealHand}>Deal a hand</Button>
       <div className="wrapper">
       <div className="flex-container">
         {handList}

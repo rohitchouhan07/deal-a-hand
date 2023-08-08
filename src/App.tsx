@@ -1,10 +1,7 @@
 import React from 'react';
-//import './App.css';
-import { cards } from './utils/cards';
 import Table from './components/Table/Table';
 
-function App() {
- console.log(cards);
+export default function App() {
  return (
     <div className="App">
       <Table />
@@ -12,4 +9,3 @@ function App() {
   );
 }
 
-export default App;

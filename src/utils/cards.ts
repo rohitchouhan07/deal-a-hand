@@ -1,15 +1,5 @@
-//const suits: string[] = ["clubs", "hearts", "spades", "diamonds"];
-//const values: string[] = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-//
-//export let cards: string[] = [];
-//
-//for (var i in suits) {
-//  for (var j in values) {
-//    cards.push(values[j] + "_" + suits[i]);
-//  }
-//}
 export const HANDSZ = 5;
-export let cards = [
+export const cards = [
 
   { id: 0, value: 'clubs_A' },
 

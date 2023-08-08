@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { cards, HANDSZ } from '../../utils/cards';
-import Card from '../Card/Card';
-import Button from '../Button/Button';
+import { useState } from "react";
+import { cards, HANDSZ } from "../../utils/cards";
+import Card from "../Card/Card";
+import Button from "../Button/Button";
 
 interface Card_ {
   id: number;
@@ -16,9 +16,9 @@ interface HandProps {
 function Hand({ fiveCards, className }: HandProps) {
   return (
     <ul className={className}>
-      {fiveCards.map(card =>
+      {fiveCards.map((card) => (
         <Card key={card.id} value={card.value} />
-      )}
+      ))}
     </ul>
   );
 }
@@ -34,29 +34,36 @@ export default function Hands() {
       let fiveCards: Card_[] = [];
 
       for (var i = 0; i < HANDSZ; i++) {
-        console.log(cardList.length);
         let index: number = Math.floor(Math.random() * (newList.length - 1));
         fiveCards.push(newList[index]);
         newList.splice(index, 1);
       }
 
       setCardList(newList);
-      setHandList(handList.concat(<Hand className="animated-ul" key={newList.length} fiveCards={fiveCards} />)); 
-    }
-    else {
+      setHandList(
+        handList.concat(
+          <Hand
+            className="animated-ul"
+            key={newList.length}
+            fiveCards={fiveCards}
+          />,
+        ),
+      );
+    } else {
       setIsDisabled("disabled");
       alert("No more cards left");
     }
-  } 
+  }
 
   return (
     <div className="center-align">
-      <Button className="button1" isDisabled={isDisabled} onClick={dealHand}>Deal a hand</Button>
+      <Button className="button1" isDisabled={isDisabled} onClick={dealHand}>
+        Deal a hand
+      </Button>
       <div className="wrapper">
-      <div className="flex-container">
-        {handList}
-        </div>
+        <div className="flex-container">{handList}</div>
       </div>
     </div>
   );
 }
+
